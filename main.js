@@ -10,6 +10,8 @@ let mensagem = document.querySelector('#mensagem-tentativas');
 let buttonTentar = document.querySelector('#tentar-button');
 let buttonReset = document.querySelector('#novamente-button');
 
+let mensagemErro = document.querySelector('.mensagem-erro');
+
 //FUNÇÃO CALLBACK (PASSADA COMO ARGUMENTO DE OUTRA FUNÇÃO)
 function tentar(event) {
   event.preventDefault();
@@ -19,6 +21,9 @@ function tentar(event) {
     telaPrincipal.classList.add('hide');
     telaSecundaria.classList.remove('hide');
     mensagem.innerHTML = `Parabéns! Voce acertou em ${tentativas} tentativas!`
+    
+  } else {
+    mensagemErro.classList.remove('hide');
   }
   tentativas++;
   numero.value = '';
@@ -33,6 +38,7 @@ function tentarNovamente() {
     tentativas = 1;
     numeroComputador = Math.round(Math.random() * 10);
     document.querySelector('#numero').value = '';
+    mensagemErro.classList.add('hide');
 }
 
 buttonReset.addEventListener('click', tentarNovamente)

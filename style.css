@@ -69,7 +69,8 @@ form > input {
 
   background: #DCE2E9;
   border-radius: 0.4rem 0rem 0rem 0.4rem;
-  border-style: none;
+  border: 0.1rem solid #7879F1;
+
 
   text-align: center;
 }
@@ -110,4 +111,9 @@ h2 {
   border-style: none;
 
   padding: 1.6rem;
+}
+
+.mensagem-erro {
+  margin-top: 2rem;
+  color: rgba(224, 47, 15);
 }
