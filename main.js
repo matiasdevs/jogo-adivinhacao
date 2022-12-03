@@ -13,14 +13,15 @@ let buttonReset = document.querySelector('#novamente-button');
 //FUNÇÃO CALLBACK (PASSADA COMO ARGUMENTO DE OUTRA FUNÇÃO)
 function tentar(event) {
   event.preventDefault();
-  let numero = Number(document.querySelector('#numero').value);
+  numero = document.querySelector('#numero');
   
-  if(numero == numeroComputador) {
+  if(Number(numero.value) == numeroComputador) {
     telaPrincipal.classList.add('hide');
     telaSecundaria.classList.remove('hide');
     mensagem.innerHTML = `Parabéns! Voce acertou em ${tentativas} tentativas!`
   }
   tentativas++;
+  numero.value = '';
 }
 
 //FUNÇÃO HANDLE QUE CHAMA A FUNÇÃO CALLBACK
