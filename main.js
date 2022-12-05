@@ -18,10 +18,9 @@ function tentar(event) {
   numero = document.querySelector('#numero');
   
   if(Number(numero.value) == numeroComputador) {
-    telaPrincipal.classList.add('hide');
-    telaSecundaria.classList.remove('hide');
+    toggleTela();
     mensagem.innerHTML = `Parabéns! Voce acertou em ${tentativas} tentativas!`
-    
+
   } else {
     mensagemErro.classList.remove('hide');
   }
@@ -33,12 +32,19 @@ function tentar(event) {
 buttonTentar.addEventListener('click', tentar)
 
 function tentarNovamente() {
-    telaPrincipal.classList.remove('hide');
-    telaSecundaria.classList.add('hide');
-    tentativas = 1;
-    numeroComputador = Math.round(Math.random() * 5);
-    document.querySelector('#numero').value = '';
-    mensagemErro.classList.add('hide');
+  toggleTela();
+  tentativas = 1;
+  numeroComputador = Math.round(Math.random() * 5);
+  document.querySelector('#numero').value = '';
+  mensagemErro.classList.add('hide');
+
 }
 
 buttonReset.addEventListener('click', tentarNovamente)
+
+function toggleTela() {
+  telaPrincipal.classList.toggle('hide');
+  telaSecundaria.classList.toggle('hide');
+}
+
+
