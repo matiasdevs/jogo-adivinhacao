@@ -1,4 +1,4 @@
-let numeroComputador = Math.round(Math.random() * 10);
+let numeroComputador = Math.round(Math.random() * 5);
 let numero;
 let tentativas = 1;
 
@@ -36,7 +36,7 @@ function tentarNovamente() {
     telaPrincipal.classList.remove('hide');
     telaSecundaria.classList.add('hide');
     tentativas = 1;
-    numeroComputador = Math.round(Math.random() * 10);
+    numeroComputador = Math.round(Math.random() * 5);
     document.querySelector('#numero').value = '';
     mensagemErro.classList.add('hide');
 }
